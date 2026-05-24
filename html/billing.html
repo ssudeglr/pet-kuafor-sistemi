@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>PetShop - Fatura</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="user-info"><i class="fa fa-user-circle"></i> <span id="empNameDisplay">Çalışan</span></div>
+            <ul>
+                <li><a href="dashboard.html"><i class="fa fa-home"></i> Ana Sayfa</a></li>
+                <li><a href="products.html"><i class="fa fa-box"></i> Ürünler</a></li>
+                <li><a href="employees.html"><i class="fa fa-users"></i> Çalışanlar</a></li>
+                <li><a href="customers.html"><i class="fa fa-user-tag"></i> Müşteriler</a></li>
+                <li class="active"><a href="billing.html"><i class="fa fa-file-invoice"></i> Faturalandırma</a></li>
+                <li class="logout"><a href="#" onclick="logout()"><i class="fa fa-sign-out-alt"></i> Çıkış</a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <div class="billing-grid">
+                <div class="form-section">
+                    <h3>Fatura Detayları</h3>
+                    <div class="form-row">
+                        <select id="custIdCB" onchange="fetchCustName()"><option value="1">Varsayılan Müşteri</option></select>
+                        <input type="text" id="custName" placeholder="Müşteri Adı">
+                    </div>
+                    <hr>
+                    <div class="form-row">
+                        <input type="text" id="billPrName" placeholder="Ürün Adı (Örn: Mama)">
+                        <input type="number" id="billPrQty" placeholder="Adet">
+                        <input type="number" id="billPrPrice" placeholder="Fiyat">
+                    </div>
+                    <button class="btn-save" onclick="addToBill()">Sepete Ekle</button>
+                </div>
+                <div>
+                    <h3>Ürün Faturası</h3>
+                    <table id="billItemsTable">
+                        <thead><tr><th>ID</th><th>Ürün</th><th>Adet</th><th>Fiyat</th><th>Toplam</th></tr></thead>
+                        <tbody id="billItemsList"></tbody>
+                    </table>
+                    <div class="total-area">
+                        <h2 id="grandTotalText">Toplam: 0 TL</h2>
+                        <button class="btn-save" onclick="printAndSaveBill()">Yazdır ve Kaydet</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../js/app.js"></script>
+</body>
+</html>

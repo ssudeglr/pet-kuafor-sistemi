@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>PetShop - Ana Sayfa</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="user-info">
+                <i class="fa fa-user-circle"></i>
+                <span id="empNameDisplay">Çalışan</span>
+            </div>
+            <ul>
+                <li class="active"><a href="dashboard.html"><i class="fa fa-home"></i> Ana Sayfa</a></li>
+                <li><a href="products.html"><i class="fa fa-box"></i> Ürünler</a></li>
+                <li><a href="employees.html"><i class="fa fa-users"></i> Çalışanlar</a></li>
+                <li><a href="customers.html"><i class="fa fa-user-tag"></i> Müşteriler</a></li>
+                <li><a href="billing.html"><i class="fa fa-file-invoice"></i> Faturalandırma</a></li>
+                <li class="logout"><a href="#" onclick="logout()"><i class="fa fa-sign-out-alt"></i> Çıkış</a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <h1>Evcil Hayvan Bakım Merkezi</h1>
+            <div class="stats-grid">
+                <div class="stat-card cats">
+                    <i class="fa fa-cat"></i>
+                    <h3>Kediler</h3>
+                    <p id="catCount">0</p>
+                </div>
+                <div class="stat-card dogs">
+                    <i class="fa fa-dog"></i>
+                    <h3>Köpekler</h3>
+                    <p id="dogCount">0</p>
+                </div>
+                <div class="stat-card birds">
+                    <i class="fa fa-dove"></i>
+                    <h3>Kuşlar</h3>
+                    <p id="birdCount">0</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

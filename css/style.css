@@ -1,0 +1,480 @@
+/* Google Fonts üzerinden Poppins yazı tipini farklı kalınlıklarda projeye dahil eder */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Proje genelinde kullanılacak renk değişkenleri (Değişiklikleri tek merkezden yapmayı sağlar) */
+:root {
+    --bg-bisque: #FFE4C4;       /* Sayfa arka planı için açık bisküvi rengi */
+    --panel-white: #FFFFFF;     /* Paneller ve kartlar için saf beyaz */
+    --panel-linen: #FAF0E6;     /* Form alanları için keten rengi */
+    --primary-turq: #AFEEEE;    /* Vurgu ve başlıklar için turkuaz */
+    --btn-seagreen: #2E8B57;    /* Butonlar için deniz yeşili */
+    --table-header: #1E90FF;    /* Tablo başlıkları için mavi */
+    --text-dark: #333333;       /* Genel metinler için koyu gri */
+}
+
+/* Tüm sayfanın temel ayarları */
+body {
+    margin: 0;                             /* Tarayıcı varsayılan boşluklarını sıfırlar */
+    font-family: 'Poppins', sans-serif;    /* Yazı tipini Poppins yapar */
+    background-color: var(--bg-bisque);    /* Arka plan rengini bisküvi rengi yapar */
+}
+
+/* Giriş (Login) sayfasının gövdesini ortalamak için kullanılır */
+.login-body {
+    display: flex;                /* Esnek kutu yapısı */
+    justify-content: center;      /* Yatayda tam orta */
+    align-items: center;          /* Dikeyde tam orta */
+    height: 100vh;                /* Ekran yüksekliğinin tamamını kapla */
+}
+
+/* Giriş formunun beyaz kart alanı */
+.login-card {
+    background-color: var(--panel-white);  /* Beyaz arka plan */
+    width: 350px;                          /* Sabit genişlik */
+    border-radius: 20px;                   /* Köşeleri yuvarlatma */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Hafif gölge efekti */
+    overflow: hidden;                      /* Taşmaları gizle (köşe yuvarlağı için) */
+}
+
+/* Giriş kartının üst başlık alanı */
+.login-header {
+    background-color: var(--primary-turq); /* Turkuaz arka plan */
+    padding: 30px;                         /* İç boşluk */
+    text-align: center;                    /* Metni ortalar */
+}
+
+/* Giriş formundaki inputları ve butonları hizalar */
+.login-form, .forgot-form {
+    padding: 30px;             /* Kartın içindeki boşluk */
+    display: flex;             /* Elemanları esnek yapıda tut */
+    flex-direction: column;    /* Elemanları alt alta diz */
+    gap: 15px;                 /* Elemanlar arası boşluk */
+}
+
+/* Giriş formundaki yazı yazma alanları */
+.login-form input, .forgot-form input {
+    padding: 12px;             /* Yazı yazma alanı yüksekliği */
+    border: 1px solid #ddd;    /* Hafif gri kenarlık */
+    border-radius: 10px;       /* Yumuşak köşeler */
+    font-family: inherit;      /* Ana yazı tipini kullan */
+}
+
+/* Giriş yap butonu */
+.btn-login {
+    background-color: var(--btn-seagreen); /* Yeşil arka plan */
+    color: white;                          /* Beyaz yazı */
+    border: none;                          /* Çerçeveyi kaldır */
+    padding: 12px;                         /* İç boşluk */
+    border-radius: 20px;                   /* Tam yuvarlak köşeler */
+    font-weight: bold;                     /* Kalın yazı */
+    cursor: pointer;                       /* Üzerine gelince el imleci çıksın */
+}
+
+/* Şifremi unuttum linki ve ek alanlar */
+.forgot-password-link {
+    text-align: right;
+    margin-top: 5px;
+}
+
+.forgot-password-link a {
+    color: var(--btn-seagreen);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.forgot-password-link a:hover {
+    color: var(--table-header);
+    text-decoration: underline;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #555;
+    border: 1px solid #ccc;
+    padding: 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #f0f0f0;
+    opacity: 1;
+}
+
+/* Dashboard yapısı için genel konteyner */
+.container {
+    display: flex;                 /* Sidebar ve Content'i yan yana koyar */
+    height: 100vh;                 /* Ekranın tam yüksekliğini al */
+    padding: 15px;                 /* Dış boşluk */
+    box-sizing: border-box;        /* Padding'i genişliğe dahil et */
+}
+
+/* Sol taraftaki menü paneli (Sidebar) */
+.sidebar {
+    width: 250px;                           /* Genişlik */
+    background-color: var(--panel-white);   /* Beyaz arka plan */
+    border-radius: 20px;                    /* Yuvarlak köşeler */
+    padding: 20px;                          /* İç boşluk */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Çok hafif gölge */
+    display: flex;                          /* İçerikleri düzenlemek için */
+    flex-direction: column;                 /* Alt alta dizilim */
+}
+
+/* Sidebar içindeki kullanıcı adı alanı */
+.user-info {
+    font-size: 18px;                /* Yazı boyutu */
+    font-weight: bold;              /* Kalın yazı */
+    color: var(--text-dark);        /* Koyu renk */
+    margin-bottom: 30px;            /* Menü ile aradaki boşluk */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Sidebar menü listesi */
+.sidebar ul {
+    list-style: none; /* Liste işaretlerini (noktaları) kaldır */
+    padding: 0;
+    margin: 0;
+}
+
+/* Menüdeki her bir link (buton gibi görünmesi için) */
+.sidebar li a {
+    display: flex;                  /* İkon ve metni yan yana getir */
+    align-items: center;            /* Dikeyde ortala */
+    gap: 15px;                      /* İkon ile yazı arası boşluk */
+    padding: 15px;                  /* Tıklama alanı genişliği */
+    color: var(--text-dark);        /* Metin rengi */
+    text-decoration: none;          /* Alt çizgiyi kaldır */
+    font-weight: 600;               /* Yarı kalın yazı */
+    border-radius: 20px;            /* Hover efekti için yuvarlaklık */
+    transition: 0.3s;               /* Geçiş efekt hızı */
+}
+
+/* Aktif sayfa veya üzerine gelinen menü öğesi */
+.sidebar li.active a, .sidebar li a:hover {
+    background-color: var(--primary-turq); /* Turkuaz vurgu */
+}
+
+/* Çıkış butonunu en alta itmek için kullanılır */
+.logout { margin-top: auto; }
+
+/* Ana içerik alanının (Beyaz büyük panel) ayarları */
+.content {
+    flex: 1;                               /* Kalan boşluğun tamamını kapla */
+    margin-left: 20px;                     /* Sidebar ile araya boşluk koy */
+    background-color: var(--panel-white);  /* Beyaz arka plan */
+    border-radius: 20px;                   /* Yuvarlak köşeler */
+    padding: 30px;                         /* İç boşluk */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    overflow-y: auto;                      /* İçerik uzarsa kaydırma çubuğu çıksın */
+}
+
+/* Formların olduğu bölümlerin arka planı */
+.form-section {
+    background-color: var(--panel-linen);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+/* Form içindeki inputları yan yana dizebilmek için satır yapısı */
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Form elemanlarının (input, select, yazı alanı) ortak tasarımı */
+.form-row input, .form-row select, .form-row textarea {
+    flex: 1;                 /* Eşit genişlikte dağılsınlar */
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-family: inherit;
+}
+
+/* Kaydet/Temizle butonlarının olduğu satır */
+.btn-row {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end; /* Butonları sağa yasla */
+}
+
+/* Genel buton tasarımı */
+button {
+    padding: 10px 30px;
+    border: 1px solid var(--btn-seagreen);
+    border-radius: 20px;
+    background-color: var(--panel-linen);
+    color: var(--btn-seagreen);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Kaydet butonu için özel yeşil tasarım */
+button.btn-save { background-color: var(--btn-seagreen); color: white; }
+/* Butonlara basılınca/üzerine gelince biraz şeffaflaşma efekti */
+button:hover { opacity: 0.8; }
+
+/* Liste ve tabloların modern görünümü */
+table {
+    width: 100%;
+    border-collapse: collapse;              /* Çizgileri birleştir */
+    background-color: var(--panel-white);
+    border-radius: 15px;
+    overflow: hidden;                       /* Tablo köşeleri için */
+}
+
+/* Tablo başlık satırı (Header) */
+thead { background-color: var(--table-header); color: white; }
+/* Hücrelerin (td ve th) iç boşlukları */
+th, td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
+/* Tablo satırlarını okunabilirlik için birer atlayarak renklendir */
+tbody tr:nth-child(even) { background-color: #F8FBFF; }
+
+/* Fatura ekranındaki ikili düzen */
+.billing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+/* Toplam tutar alanının sağa yaslanması */
+.total-area { text-align: right; margin-top: 20px; }
+
+/* Dashboard'daki özet istatistik kartları düzeni */
+.stats-grid { display: flex; gap: 20px; }
+/* İstatistik kartlarının (Stok, Satış vb.) tasarımı */
+.stat-card { 
+    background: var(--bg-bisque); 
+    padding: 20px; 
+    border-radius: 20px; 
+    width: 150px; 
+    text-align: center; 
+}
+/* Kartların içindeki ikonların boyutu */
+.stat-card i { font-size: 40px; margin-bottom: 10px; }
+
+
+/* --- YAZDIRMA EKRANI AYARLARI (Yalnızca çıktı alırken çalışır) --- */
+@media print {
+    body * {
+        visibility: hidden; /* Sayfadaki her şeyi çıktıdan gizle */
+    }
+    /* Sadece Fatura Tablosunu ve Toplam tutarı görünür yap */
+    #billItemsTable, #billItemsTable *, #grandTotalText, #grandTotalText * {
+        visibility: visible;
+    }
+    /* Tabloyu sayfanın en üstüne ve tam genişliğine ayarla */
+    #billItemsTable {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+    /* Toplam tutarı faturanın altına yerleştir */
+    #grandTotalText {
+        position: absolute;
+        top: auto;
+        bottom: 50px;
+    }
+}
+
+/* --- CUSTOM TOAST NOTIFICATION SYSTEM --- */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.toast {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #333;
+    padding: 16px 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    border-left: 5px solid #ccc;
+    font-weight: 500;
+    font-size: 14px;
+    min-width: 280px;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transform: translateX(120%);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s;
+    opacity: 0;
+}
+
+.toast.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.toast.success {
+    border-left-color: #2E8B57;
+    background: rgba(230, 245, 235, 0.95);
+}
+
+.toast.error {
+    border-left-color: #d9534f;
+    background: rgba(253, 238, 238, 0.95);
+}
+
+.toast.info {
+    border-left-color: #1E90FF;
+    background: rgba(235, 245, 255, 0.95);
+}
+
+.toast.warning {
+    border-left-color: #f0ad4e;
+    background: rgba(255, 248, 230, 0.95);
+}
+
+.toast-icon {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toast.success .toast-icon {
+    color: #2E8B57;
+}
+
+.toast.error .toast-icon {
+    color: #d9534f;
+}
+
+.toast.info .toast-icon {
+    color: #1E90FF;
+}
+
+.toast.warning .toast-icon {
+    color: #f0ad4e;
+}
+
+/* ==========================================================================
+   PREMIUM AESTHETIC EFFECTS: Floating Orbs & Glassmorphism Card (Gereksizse bu satırdan sonrasını tamamen silebilirsiniz)
+   ========================================================================== */
+.login-body {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #FFE4C4 0%, #FAF0E6 100%);
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+    z-index: 1;
+    animation: float 22s infinite ease-in-out alternate;
+}
+
+.orb-1 {
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, #AFEEEE 0%, #87CEEB 100%);
+    top: -60px;
+    left: -60px;
+}
+
+.orb-2 {
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, #FFE4C4 0%, #FFB6C1 100%);
+    bottom: -100px;
+    right: -60px;
+    animation-delay: -6s;
+    animation-duration: 26s;
+}
+
+.orb-3 {
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, #AFEEEE 0%, #1E90FF 100%);
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    animation-delay: -11s;
+    animation-duration: 32s;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    50% {
+        transform: translate(45px, -45px) scale(1.15) rotate(180deg);
+    }
+    100% {
+        transform: translate(-25px, 25px) scale(0.9) rotate(360deg);
+    }
+}
+
+/* Glassmorphism for Login Card & Hover Scaling */
+.login-card {
+    position: relative;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.78) !important;
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08), 
+                0 5px 15px rgba(0, 0, 0, 0.04);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+}
+
+.login-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12), 
+                0 10px 22px rgba(0, 0, 0, 0.06);
+}
+
+/* Smooth Input Focus Scaling & Glow */
+.login-form input, .forgot-form input {
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.login-form input:focus, .forgot-form input:focus {
+    outline: none;
+    border-color: #1E90FF !important;
+    box-shadow: 0 0 12px rgba(30, 144, 255, 0.3);
+    transform: translateY(-2px);
+    background-color: #FFF !important;
+}
+
+/* Premium Login Button Pulse Glow */
+.btn-login {
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn-login:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(46, 139, 87, 0.35);
+    opacity: 0.95;
+}
+
+.btn-login:active {
+    transform: translateY(-1px);
+}
